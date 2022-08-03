@@ -10,6 +10,8 @@ print(tabela)
 
 
 # Escluir coluna inútil
+# axis = 0 eixo da linha
+# axis = 1 eixo da coluna
 tabela = tabela.drop("Unnamed: 0", axis=1)
 print(tabela)
 
@@ -18,4 +20,7 @@ print(tabela)
 # Tratamento de dados
 # Resolver as besteiras na base de dados
 # Informaçoes do tipo correto
+tabela["TotalGasto"] = pd.to_numeric(tabela["TotalGasto"], errors="coerce")
+
 # Informaçoes Vazias
+print(tabela.info())
