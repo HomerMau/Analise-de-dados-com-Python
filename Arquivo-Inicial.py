@@ -22,5 +22,20 @@ print(tabela)
 # Informaçoes do tipo correto
 tabela["TotalGasto"] = pd.to_numeric(tabela["TotalGasto"], errors="coerce")
 
+
+tabela = tabela.dropna(how="all", axis=1)
+
+# Linhas que tem alguma informação vazia
+tabela = tabela.dropna(how="any", axis=0)
+
 # Informaçoes Vazias
 print(tabela.info())
+
+# Analise inicial de Dados
+# Como estão os cancelamentos? 26%
+print(tabela["Churn"].value_counts())
+
+print(tabela["Churn"].value_counts(normalize=True).map("{:.1%}".format))
+
+
+# Descobrir os Motivos do Cancelamento
