@@ -39,3 +39,15 @@ print(tabela["Churn"].value_counts(normalize=True).map("{:.1%}".format))
 
 
 # Descobrir os Motivos do Cancelamento
+
+import plotly.express as px
+
+
+for coluna in tabela.columns:
+  # Etapa 1, Cria o Grafico
+  # histograms
+
+  grafico = px.histogram(tabela, x="Aposentado", color="Churn", text_auto=True)
+
+  # Etapa 2, Exibe o grafico
+  grafico.show()
